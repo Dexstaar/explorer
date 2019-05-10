@@ -4,13 +4,6 @@ import { connect } from "react-redux";
 import _ from 'lodash';
 import { loadingSuggestions, fetchSuggestions } from '../actions';
 
-
-const countryOptions = [
-  { key: "af", value: "af", flag: "af", text: "Afghanistan" },
-  { key: "ax", value: "ax", flag: "ax", text: "Aland Islands" },
-  { key: "al", value: "al", flag: "al", text: "Albania" }
-];
-
 export class DependencyExplorerContainer extends Component {
 
   state = { isLoading: false };
@@ -33,7 +26,6 @@ export class DependencyExplorerContainer extends Component {
     if(suggestions !== 'loading' && suggestions.length > 0) {
       options = suggestions.reduce((acc, elem) => {
         acc.push({ key: elem.name, value: elem.name, text: elem.name });
-
         return acc;
       }, []);
     }
