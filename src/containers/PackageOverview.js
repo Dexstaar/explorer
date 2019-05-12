@@ -22,18 +22,13 @@ export class PackageOverviewContainer extends Component {
     const { dependencies } = this.props;
 
     if (!dependencies) {
-      // console.log('dependencies are null');
       return <div><Spinner/></div>;
     }
 
     if (dependencies === "ERROR") {
-      // console.log('dependencies are null');
-      // return <div>Can not get the dependency data</div>;
       return <Messages message='Can not get the dependency data' />
     }
     if (dependencies === "NODATA") {
-      // console.log('dependencies are null');
-      // return <div>No dependency data found</div>;
       return <Messages message='No dependency data found' />
     }
 
