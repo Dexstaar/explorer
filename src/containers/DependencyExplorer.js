@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import { loadingSuggestions, fetchSuggestions } from "../actions";
 
-export class DependencyExplorerContainer extends Component {
+export class DependencyExplorer extends Component {
   state = { inputTerm: null, selectedTerm: null };
 
   componentDidMount() {
@@ -93,4 +93,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { loadingSuggestions, fetchSuggestions }
-)(DependencyExplorerContainer);
+)(DependencyExplorer);

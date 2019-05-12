@@ -1,4 +1,4 @@
-export default (state = null, action) => {
+export default function (state = null, action) {
   switch (action.type) {
     case "FETCH_DEPENDENCIES":
       return action.payload;
