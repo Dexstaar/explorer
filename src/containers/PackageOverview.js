@@ -7,7 +7,7 @@ import { fetchDependencies } from "../actions";
 import Spinner from '../components/Spinner';
 import Messages from '../components/Messages';
 
-export class PackageOverviewContainer extends Component {
+export class PackageOverview extends Component {
   componentDidMount() {
     this.props.fetchDependencies(this.props.match.params.packageName);
   }
@@ -28,6 +28,7 @@ export class PackageOverviewContainer extends Component {
     if (dependencies === "ERROR") {
       return <Messages message='Can not get the dependency data' />
     }
+
     if (dependencies === "NODATA") {
       return <Messages message='No dependency data found' />
     }
@@ -68,4 +69,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { fetchDependencies }
-)(PackageOverviewContainer);
+)(PackageOverview);

@@ -45,7 +45,6 @@ export const fetchDependencies = value => async dispatch => {
   }
 
   if (response.data.dependencies) {
-    // console.log('response.data.dependencies : ', response.data.dependencies);
     dependencies = Object.keys(response.data.dependencies);
 
     for (const elem of dependencies) {
@@ -61,9 +60,6 @@ export const fetchDependencies = value => async dispatch => {
         });
         return;
       }
-
-
-
   
       if (responseForSub.data.dependencies) {
         let subDependencies = Object.keys(responseForSub.data.dependencies);
@@ -84,10 +80,8 @@ export const fetchDependencies = value => async dispatch => {
       payload: dependencies
     });
   } else {
-    // console.log('fetchDependencies | no data');
     dispatch({
       type: "FETCH_DEPENDENCIES_NODATA"
     });
-
   }
 };

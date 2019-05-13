@@ -5,6 +5,7 @@ import _ from "lodash";
 import { loadingSuggestions, fetchSuggestions } from "../actions";
 
 export class DependencyExplorer extends Component {
+
   state = { inputTerm: null, selectedTerm: null };
 
   componentDidMount() {
@@ -13,8 +14,13 @@ export class DependencyExplorer extends Component {
 
   onFormSubmit = event => {
     event.preventDefault();
+
     const searchTerm = (this.state.selectedTerm) ? this.state.selectedTerm : this.state.inputTerm;
-    this.props.history.push(`/${searchTerm}`);
+
+    if(searchTerm !== null) { 
+      if (this.props.mockSubmit) this.props.mockSubmit();
+      this.props.history.push(`/${searchTerm}`);
+    }
   };
 
   onChange = (first, second) => {
@@ -63,6 +69,7 @@ export class DependencyExplorer extends Component {
             <div className="field">
               <div className="ui action input">
                 <Dropdown
+                  icon='search'
                   floated="right"
                   fluid
                   search
@@ -75,6 +82,7 @@ export class DependencyExplorer extends Component {
                   }}
                   onSearchChange={onSearchChange}
                   onChange={this.onChange}
+                  noResultsMessage='No suggessted keyword'
                 />
                 <Button primary>Search</Button>
               </div>
