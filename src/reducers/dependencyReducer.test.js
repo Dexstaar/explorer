@@ -1,7 +1,7 @@
 import dependencyReducer from './dependencyReducer';
 
 describe('dependencyReducer Test', () => {
-  it('should return initial state', () => {
+  it('should return the initial state', () => {
     expect(dependencyReducer(undefined, {})).toEqual(null);
   });
 
