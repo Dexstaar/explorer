@@ -1,4 +1,4 @@
-# DAILY OHLC Chart
+# Dependency Explorer
 
 This is an app to fecth dependency package
 
